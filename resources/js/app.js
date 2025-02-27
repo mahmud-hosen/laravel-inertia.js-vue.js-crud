@@ -1,5 +1,12 @@
 import { createApp, h } from 'vue'
-import { createInertiaApp } from '@inertiajs/vue3'
+import { createInertiaApp, Link } from '@inertiajs/vue3'
+import { createStore } from 'vuex'
+import storeInfo from './store/store.js'
+
+// Create a new store instance.
+const store = createStore({
+  storeInfo
+})
 
 createInertiaApp({
   resolve: name => {
@@ -7,8 +14,12 @@ createInertiaApp({
     return pages[`./Pages/${name}.vue`]
   },
   setup({ el, App, props, plugin }) {
-    createApp({ render: () => h(App, props) })
+    const app = createApp({ render: () => h(App, props) })
       .use(plugin)
-      .mount(el)
+      .use(store)
+    // Register Link component globally
+    app.component('InertiaLink', Link)
+
+    app.mount(el)
   },
 })

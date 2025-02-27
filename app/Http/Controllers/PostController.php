@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
@@ -57,4 +58,12 @@ class PostController extends Controller
         Post::destroy($id);
         return redirect()->route('posts.index');
     }
+
+    public function webhook(Request $request)
+    {
+        Log::channel('custom')->info('Webhook request received', $request->all());
+
+    }
+
+    
 }

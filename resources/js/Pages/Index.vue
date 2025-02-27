@@ -4,7 +4,10 @@
 
       <div>
         <h1 class="float-left">Posts List</h1>
-        <button @click="post_create()" class="mt-2 btn btn-primary float-right">Create</button>
+        <!-- <button @click="post_create()" class="mt-2 btn btn-primary float-right">Create</button> -->
+        <InertiaLink href="/create" class="mt-2 btn btn-primary float-right">Create</InertiaLink>
+        <!-- <Link :href="$route('posts.index')">Create User</Link> -->
+
       </div>
     
       <table class="table table-hover text-center">
@@ -57,9 +60,10 @@ export default {
         this.$inertia.get(`/posts/${id}`);
     },
 
-    post_create() {
-        this.$inertia.get(`/create/`);
-    },
+
+    // post_create() {
+    //     this.$inertia.get(`/create/`);
+    // },
 
   },
 }

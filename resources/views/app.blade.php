@@ -18,8 +18,27 @@
   <body>
 
     <div class="container">
-      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ route('posts.create') }}">Navbar</a>
+      </nav>
+
+      <a class="navbar-brand" href="{{ route('posts.index') }}">index</a>
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Inertia <Link> tag -->
+        <Link class="navbar-brand" href="{{ route('posts.create') }}">Inertia Navbar</Link>
+      </nav>
+
+
+      <a href="{{ route('posts.create') }}">View Posts</a>
+
+
+
       @inertia
+
+
+      
 
     </div>
     

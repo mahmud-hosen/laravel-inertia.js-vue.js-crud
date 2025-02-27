@@ -117,6 +117,34 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'custom' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/webhook.log'),
+            'level' => 'info',
+        ],
+        'schedule_log' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/schedule.log'),
+            'level' => 'info',
+        ],
+
+        'cron_job_log' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/cron_job.log'),
+            'level' => 'info',
+        ],
+
+        'schedule_every_minutes_log' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/schedule_every_minutes.log'),
+            'level' => 'info',
+        ],
+
+        
+
+        
+        
     ],
 
 ];
